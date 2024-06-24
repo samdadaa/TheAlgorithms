@@ -1,8 +1,5 @@
-package com.thealgorithms.maths;
-
 public final class AbsoluteMax {
-    private AbsoluteMax() {
-    }
+    private AbsoluteMax() {}
 
     /**
      * Finds the absolute maximum value among the given numbers.
@@ -15,12 +12,11 @@ public final class AbsoluteMax {
         if (numbers == null || numbers.length == 0) {
             throw new IllegalArgumentException("Numbers array cannot be empty or null");
         }
-        int absMax = numbers[0];
-        for (int i = 1; i < numbers.length; i++) {
-            if (Math.abs(numbers[i]) > Math.abs(absMax)) {
-                absMax = numbers[i];
-            }
+
+        int max = Integer.MIN_VALUE;
+        for (int number : numbers) {
+            max = Math.max(max, Math.abs(number));
         }
-        return absMax;
+        return max;
     }
 }
